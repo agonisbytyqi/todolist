@@ -1,0 +1,11 @@
+﻿@model ToDoItem
+@{
+    ViewData["Title"] = "Edit";
+}
+<h2>Edit</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="text" asp-for="Title" />
+    <span asp-validation-for="Title"></span>
+    <input type="submit" value="Submit" />
+</form>

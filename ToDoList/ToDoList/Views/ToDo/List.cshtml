@@ -1,0 +1,32 @@
+﻿@model List<ToDoItem>
+@{ 
+    ViewData["Title"] = "List";
+}
+<h2>Incomplete items</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        if(item.IsDone == false)
+                {
+                    <li>
+                        @item.Title
+
+                        <a href="@Url.Action("Edit",new { id = item.Id })"> Edit</a>
+                    </li>
+                }
+    }
+</ul>
+<h2>Completed items</h2>
+<ul>
+    @foreach( var item in Model)
+    {
+        if (item.IsDone == true)
+                {
+                    <li>
+                        @item.Title
+                    </li>
+                }
+    }
+</ul>
+<a asp-action="Create">Create new</a>
